@@ -8,13 +8,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+import SZMentionsSwift
+import SnapKit
 
+class ViewController: UIViewController, UITextViewDelegate {
+
+  private var accessoryView: AccessoryView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    accessoryView = AccessoryView(delegate: self)
+    
+    self.view.addSubview(accessoryView)
+    
+    accessoryView.snp.makeConstraints{
+      $0.left.bottom.right.equalToSuperview()
+    }
   }
-
 
 }
 
